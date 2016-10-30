@@ -1,4 +1,3 @@
-
 export const player1Keys = {
 	up:65,
 	down:90

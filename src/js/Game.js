@@ -1,6 +1,9 @@
 
-import Paddle from '../js/Paddle'
-import {player1Keys, player2Keys} from '../js/Keys'
+import Paddle from './Paddle'
+import Ball from './Ball'
+import Board from './Board'
+import ScoreBoard from './Score'
+import {player1Keys, player2Keys} from './Keys'
 
 const gap = 10
 
@@ -11,38 +14,21 @@ export default class Game {
     this.width = canvas.width;
     this.height = canvas.height;
 
-	this.p1 = new Paddle(this.height, gap, 'white', player1Keys)
-	this.p2  = new Paddle(this.height, this.width - 4 - gap,'white', player2Keys)
-	}
-
-	drawBoard(){
-		this.context.fillStyle = 'black'
-  		this.context.fillRect(0,0,this.width,this.height)
-  		//dividing line
-		this.drawLine();
-		this.drawBall();	
-	}
-
-	drawBall(){
-		this.context.fillStyle = 'white';
-		this.context.beginPath();
-		// arc(x, y, radius, 0, Pi* 2, true)
-		this.context.arc(100, 100, 5, 0, Math.PI*2, true);
-		this.context.fill();
-	}
-	drawLine(){
-		this.context.setLineDash([5,3]);
-		this.context.beginPath();
-		this.context.moveTo(this.width/2,0);
- 		this.context.lineTo(this.width/2,this.height);
-		 this.context.fillStyle = 'white';
-		this.context.strokeStyle = 'white';
-		this.context.stroke();
+	this.board = new Board(this.height, this.width, 'Black')
+	this.ball = new Ball(this.height, this.width, 'white', 5);
+	this.p1 = new Paddle(this.height, gap, 'white', player1Keys);
+	this.p2  = new Paddle(this.height, this.width - gap,'white', player2Keys);
+	this.p1Score = new ScoreBoard(225, 85);
+	this.p2Score = new ScoreBoard(75,85);
+	
 	}
 	render(){
-		this.drawBoard();
-		this.p1.render(this.context)
-		this.p2.render(this.context)
+		this.board.render(this.context);
+		this.p1.render(this.context);
+		this.p2.render(this.context);
+		this.ball.render(this.context, this.p1, this.p2, this.p1Score, this.p2Score);
+		this.p1Score.render(this.context);
+		this.p2Score.render(this.context);
 		
 	}
 }

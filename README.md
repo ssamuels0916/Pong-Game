@@ -1,6 +1,6 @@
 # Pong Game
 
-A basic pong game using HTML5 Canvas.
+A basic pong game using HTML5 Canvas, written in ES6.
 
 ## Setup
 
