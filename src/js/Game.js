@@ -14,10 +14,10 @@ export default class Game {
     this.width = canvas.width;
     this.height = canvas.height;
 
-	this.board = new Board(this.height, this.width, 'Black')
-	this.ball = new Ball(this.height, this.width, 'white', 5);
-	this.p1 = new Paddle(this.height, gap, 'white', player1Keys);
-	this.p2  = new Paddle(this.height, this.width - gap,'white', player2Keys);
+	this.board = new Board(this.height, this.width, 'white')
+	this.ball = new Ball(this.height, this.width, 'black', 5);
+	this.p1 = new Paddle(this.height, gap, 'black', player1Keys);
+	this.p2  = new Paddle(this.height, this.width - gap,'black', player2Keys);
 	this.p1Score = new ScoreBoard(225, 85);
 	this.p2Score = new ScoreBoard(75,85);
 	

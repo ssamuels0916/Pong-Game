@@ -16,7 +16,7 @@ export default class Ball {
 
     }
     drawBall(context) {
-        context.fillStyle = 'white';
+        context.fillStyle = 'black';
         context.beginPath();
         context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         context.fill();

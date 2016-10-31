@@ -15,7 +15,7 @@ drawLine(context){
 		context.beginPath();
 		context.moveTo(this.width/2,0);
  		context.lineTo(this.width/2,this.height);
-		context.strokeStyle = 'white';
+		context.strokeStyle = 'black';
 		context.stroke();
 }
 render(context){
