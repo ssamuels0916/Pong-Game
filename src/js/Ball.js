@@ -9,10 +9,10 @@ export default class Ball {
         console.log(boardHeight);
         this.x = boardWidth / 2; // random x
         this.y = boardHeight / 2; // random y
-        this.vy = 3 //Math.floor(Math.random(5) * 12 - 6); // y direction
-        this.vx = 3 //(7 - Math.abs(this.vy)); // x direction
+        this.vy = 5 //Math.floor(Math.random(5) * 12 - 6); // y direction
+        this.vx = 5 //(7 - Math.abs(this.vy)); // x direction
         this.size = size;
-        this.speed = 3;
+        this.speed = 5;
 
     }
     drawBall(context) {

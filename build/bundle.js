@@ -113,13 +113,14 @@ var Game = function () {
 
 		var canvas = document.getElementById(id);
 		this.context = canvas.getContext('2d');
+
 		this.width = canvas.width;
 		this.height = canvas.height;
 
-		this.board = new _Board2.default(this.height, this.width, 'Black');
-		this.ball = new _Ball2.default(this.height, this.width, 'white', 5);
-		this.p1 = new _Paddle2.default(this.height, gap, 'white', _Keys.player1Keys);
-		this.p2 = new _Paddle2.default(this.height, this.width - gap, 'white', _Keys.player2Keys);
+		this.board = new _Board2.default(this.height, this.width, 'white');
+		this.ball = new _Ball2.default(this.height, this.width, 'black', 5);
+		this.p1 = new _Paddle2.default(this.height, gap, 'black', _Keys.player1Keys);
+		this.p2 = new _Paddle2.default(this.height, this.width - gap, 'black', _Keys.player2Keys);
 		this.p1Score = new _Score2.default(225, 85);
 		this.p2Score = new _Score2.default(75, 85);
 	}
@@ -195,8 +196,8 @@ var Ball = function () {
         console.log(boardHeight);
         this.x = boardWidth / 2; // random x
         this.y = boardHeight / 2; // random y
-        this.vy = 3; //Math.floor(Math.random(5) * 12 - 6); // y direction
-        this.vx = 3; //(7 - Math.abs(this.vy)); // x direction
+        this.vy = Math.floor(Math.random(5) * 12 - 6); // y direction
+        this.vx = 7 - Math.abs(this.vy); // x direction
         this.size = size;
         this.speed = 3;
     }
@@ -204,7 +205,7 @@ var Ball = function () {
     _createClass(Ball, [{
         key: 'drawBall',
         value: function drawBall(context) {
-            context.fillStyle = 'white';
+            context.fillStyle = 'black';
             context.beginPath();
             context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             context.fill();
@@ -324,7 +325,7 @@ var Board = function () {
       context.beginPath();
       context.moveTo(this.width / 2, 0);
       context.lineTo(this.width / 2, this.height);
-      context.strokeStyle = 'white';
+      context.strokeStyle = 'black';
       context.stroke();
     }
   }, {

@@ -11,6 +11,7 @@ export default class Game {
 	constructor(id) {
 	const canvas = document.getElementById(id);
 	this.context = canvas.getContext('2d');
+	
     this.width = canvas.width;
     this.height = canvas.height;
 
